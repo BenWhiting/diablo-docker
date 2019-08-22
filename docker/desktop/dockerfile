@@ -1,0 +1,20 @@
+FROM ubuntu:16.04
+
+RUN export DEBIAN_FRONTEND=noninteractive \
+ && apt-get update && apt-get install -y \
+    xfce4 \
+    wget 
+
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN apt-get purge -y pm-utils xscreensaver*
+
+EXPOSE 5901
+
+RUN wget -qO- https://dl.bintray.com/tigervnc/stable/tigervnc-1.8.0.x86_64.tar.gz | tar xz --strip 1 -C /
+RUN mkdir ~/.vnc
+RUN echo "password" | vncpasswd -f >> ~/.vnc/passwd
+RUN chmod 600 ~/.vnc/passwd
+
+
+CMD ["/usr/bin/vncserver", "-fg"]
