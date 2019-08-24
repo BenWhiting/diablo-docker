@@ -7,7 +7,9 @@ an xfce container and seeing if I can get them to run.
 ## How this works
 
 1. Download https://tigervnc.org/
-2. Build docker image under ./docker/desktop/dockerfile
+2. Build docker images
+    * `docker build -t ubuntu-vnc-desktop ubuntu-vnc-desktop`
+    * `docker build -t desktop-wine desktop-wine`
 3. Run docker image `docker run --rm -dti -p 5901:5901 ${IMAGE}`
 4. Connect to the container via vncviewer at `localhost:5901`
 
