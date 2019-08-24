@@ -7,11 +7,14 @@ an xfce container and seeing if I can get them to run.
 ## How this works
 
 1. Download https://tigervnc.org/
-2. Build docker images
+2. Download the file `StarCraft-Setup.exe` from the [official blizzard website](https://starcraft.com/en-us/articles/20674424).
+3. Move `StarCraft-Setup.exe` to ./docker/starcraft/install
+4. Build docker images
     * `docker build -t ubuntu-vnc-desktop ubuntu-vnc-desktop`
     * `docker build -t desktop-wine desktop-wine`
-3. Run docker image `docker run --rm -dti -p 5901:5901 ${IMAGE}`
-4. Connect to the container via vncviewer at `localhost:5901`
+    * `docker build -t starcraft starcraft`
+5. Run docker image `docker run --rm -dti -p 5901:5901 ${IMAGE}`
+6. Connect to the container via vncviewer at `localhost:5901`
 
 ## Useful docs References
 

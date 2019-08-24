@@ -1,0 +1,5 @@
+FROM desktop-wine:latest
+
+COPY  ./install/StarCraft.exe StarCraft.exe
+
+CMD ["/usr/bin/vncserver", "-fg"]
