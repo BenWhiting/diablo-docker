@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+  starcraft: 
+    image: starcraft:latest
+    expose:
+      - 5901
+    networks:
+      - lan
+  novnc:
+    image: theasp/novnc:latest
+    environment:
+      # Adjust to your screen size
+      - DISPLAY_WIDTH=1600
+      - DISPLAY_HEIGHT=968
+      - RUN_XTERM=no
+    ports:
+      - "8080:8080"
+    networks:
+      - lan
+networks:
+  lan:
