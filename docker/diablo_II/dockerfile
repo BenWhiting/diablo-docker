@@ -1,5 +1,0 @@
-FROM desktop-wine:latest
-
-COPY  ./install ./install
-
-CMD ["/usr/bin/vncserver", "-fg"]
