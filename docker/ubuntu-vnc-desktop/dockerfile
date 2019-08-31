@@ -9,7 +9,10 @@ RUN rm -rf /var/lib/apt/lists/*
 
 RUN apt-get purge -y pm-utils xscreensaver*
 
-EXPOSE 5901
+ENV DISPLAY=:1 \
+    VNC_PORT=5901 \
+    NO_VNC_PORT=6901
+EXPOSE $VNC_PORT $NO_VNC_PORT
 
 RUN wget -qO- https://dl.bintray.com/tigervnc/stable/tigervnc-1.8.0.x86_64.tar.gz | tar xz --strip 1 -C /
 RUN mkdir ~/.vnc

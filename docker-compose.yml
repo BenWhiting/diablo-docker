@@ -1,21 +1,24 @@
 version: '3.5'
 services:
   starcraft: 
-    image: starcraft:latest
+    image: desktop-wine:latest
     expose:
-      - 5901
+      - "5901"
     networks:
-      - lan
+      internal:
+
   novnc:
-    image: theasp/novnc:latest
+    image: novnc:latest
     environment:
       # Adjust to your screen size
       - DISPLAY_WIDTH=1600
       - DISPLAY_HEIGHT=968
-      - RUN_XTERM=no
+      - RUN_XTERM=yes
+      - RUN_FLUXBOX=yes
     ports:
       - "8080:8080"
     networks:
-      - lan
+      internal:
+
 networks:
-  lan:
+  internal:

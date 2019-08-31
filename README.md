@@ -1,23 +1,18 @@
+[![Build Status](https://travis-ci.org/BenWhiting/lan-party-docker.svg?branch=master)](https://travis-ci.org/BenWhiting/lan-party-docker)
+
 # lan-party-docker
 
 I wanted to run older games on any computer with minimal setup.....
 So I am slapping them into docker images, inside of
-an xfce container and seeing if I can get them to run.
+an xfce/wine container and seeing if I can get them to run.
 
 ## How this works
 
-1. Download https://tigervnc.org/
-2. Download the file `StarCraft-Setup.exe` from the [official blizzard website](https://starcraft.com/en-us/articles/20674424).
-3. Move `StarCraft-Setup.exe` to ./docker/starcraft/install
-4. Build docker images
-    * `docker build -t ubuntu-vnc-desktop ubuntu-vnc-desktop`
-    * `docker build -t desktop-wine desktop-wine`
-    * `docker build -t starcraft starcraft`
-5. Run docker image `docker run --rm -dti -p 5901:5901 ${IMAGE}`
-6. Connect to the container via vncviewer at `localhost:5901`
-
-## Useful docs References
-
-* <https://starcraft.com/en-us/articles/20674424>
-* <https://tigervnc.org/>
-* <https://www.winehq.org/>
+1. Download the file `StarCraft-Setup.exe` from the [official blizzard website](https://starcraft.com/en-us/articles/20674424).
+2. Move `StarCraft-Setup.exe` to ./docker/starcraft/install
+3. Build docker images `make all`
+4. Run docker compose `make up`
+5. Connect novnc compose file at `http://localhost:8080/vnc.html`
+    - host: starcraft
+    - port: 5901
+    - password: password
