@@ -13,6 +13,6 @@ an xfce/wine container and seeing if I can get them to run.
 3. Build docker images `make all`
 4. Run docker compose `make up`
 5. Connect novnc compose file at `http://localhost:8080/vnc.html`
-    - host: starcraft
-    - port: 5901
+    - host: localhost
+    - port: 8080
     - password: password
