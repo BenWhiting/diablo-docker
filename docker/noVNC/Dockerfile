@@ -1,12 +1,11 @@
 FROM ubuntu:16.04
 
-# Install git, supervisor, VNC, & X11 packages
+# Install supervisor, VNC, & X11 packages
 RUN set -ex; \
     apt-get update; \
     apt-get install -y \
       bash \
       fluxbox \
-      git \
       net-tools \
       novnc \
       supervisor \
