@@ -2,18 +2,18 @@ DOCKERBUILDCMD=docker build
 DOCKERCOMPOSECMD= docker-compose
 
 
-all:  build-novnc build-desktop build-wine
+all:  novnc desktop wine
 
-build-novnc:
+novnc:
 	$(DOCKERBUILDCMD) -t novnc ./docker/noVNC/
 
-build-desktop:
+desktop:
 	$(DOCKERBUILDCMD) -t ubuntu-vnc-desktop ./docker/ubuntu-vnc-desktop/
 
-build-wine:
+wine:
 	$(DOCKERBUILDCMD) -t desktop-wine ./docker/desktop-wine/
 
-build-starcraft:
+starcraft:
 	$(DOCKERBUILDCMD) -t starcraft ./docker/desktop-starcraft/
 
 up:
