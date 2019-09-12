@@ -2,9 +2,10 @@
 
 # lan-party-docker
 
-I wanted to run older games on any computer with minimal setup.....
-So I am slapping them into docker images, inside of
-an xfce/wine container and seeing if I can get them to run.
+I wanted to be able to play older video games through a web-browser,
+so I build a collection of docker images to allow me to do this.
+
+The two images of importance are the noVNC web interface and starcraft containers.
 
 ## Docker-Image Breakdown
 
@@ -24,9 +25,10 @@ an xfce/wine container and seeing if I can get them to run.
 
 1. Download the file `StarCraft-Setup.exe` from the [official blizzard website](https://starcraft.com/en-us/articles/20674424).
 2. Move `StarCraft-Setup.exe` to ./docker/starcraft/install
-3. Build docker images `make all`
+3. Build docker images `make all` 
 4. Run docker compose `make up`
 5. Connect novnc compose file at `http://localhost:8080/vnc.html`
     - host: localhost
     - port: 8080
     - password: password
+ 6. Navigate to where you mounted the `StarCraft-Setup.exe` and run `wine StarCraft-Setup.exe` to complete setup
